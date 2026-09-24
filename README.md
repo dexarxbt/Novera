@@ -8,6 +8,7 @@
 
   <br />
 
+  [![Website](https://img.shields.io/badge/Web-noveraa.vercel.app-000000?style=flat-square&logo=vercel&logoColor=white)](https://noveraa.vercel.app)
   [![Telegram](https://img.shields.io/badge/Telegram-@noveraa__bot-2CA5E0?style=flat-square&logo=telegram&logoColor=white)](https://t.me/noveraa_bot)
   [![Built on Sui](https://img.shields.io/badge/Built%20on-Sui-4DA2FF?style=flat-square)](https://sui.io)
   [![Walrus Memory](https://img.shields.io/badge/Storage-Walrus%20Memory-6B46C1?style=flat-square)](https://walrus.site)
@@ -219,5 +220,5 @@ MIT — see [LICENSE](./LICENSE)
 ---
 
 <div align="center">
-  <sub>Built by <a href="https://github.com/dexarxbt">Dexar</a> · Powered by <a href="https://walrus.site">Walrus</a> · Running on <a href="https://sui.io">Sui</a></sub>
+  <sub>Built by <a href="https://github.com/dexarxbt">Dexar</a> · <a href="https://noveraa.vercel.app">noveraa.vercel.app</a> · Powered by <a href="https://walrus.site">Walrus</a> · Running on <a href="https://sui.io">Sui</a></sub>
 </div>
