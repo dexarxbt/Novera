@@ -82,16 +82,31 @@ export class GeminiClient {
       promptLength: prompt.length,
     });
 
-    const response = await this.ai.models.generateContent({
-      model: this.model,
-      contents: prompt,
-    });
-
-    const text = response.text?.trim();
-    if (!text) throw new Error("Empty response from Gemini");
-
-    logger.debug("Gemini response received", { length: text.length });
-    return text;
+    // Retry up to 3 times on 503/overload
+    let lastError: unknown;
+    for (let attempt = 1; attempt <= 3; attempt++) {
+      try {
+        const response = await this.ai.models.generateContent({
+          model: this.model,
+          contents: prompt,
+        });
+        const text = response.text?.trim();
+        if (!text) throw new Error("Empty response from Gemini");
+        logger.debug("Gemini response received", { length: text.length, attempt });
+        return text;
+      } catch (err: any) {
+        lastError = err;
+        const is503 = err?.message?.includes("503") || err?.message?.includes("UNAVAILABLE") || err?.message?.includes("high demand");
+        if (is503 && attempt < 3) {
+          const delay = attempt * 2000; // 2s, then 4s
+          logger.warn(`Gemini 503, retrying in ${delay}ms`, { attempt });
+          await new Promise((r) => setTimeout(r, delay));
+          continue;
+        }
+        throw err;
+      }
+    }
+    throw lastError;
   }
 
   /** Generate a quiz question (used by quiz-engine) */

@@ -138,9 +138,14 @@ const handleMessage = async (ctx: any) => {
     }
 
     logger.info("Reply sent", { userId, length: reply.length });
-  } catch (error) {
+  } catch (error: any) {
     logger.error("handleMessage error", error as Error, { userId, messageText });
-    await ctx.reply("Something went wrong on my end. Try again in a second.");
+    const is503 = error?.message?.includes("503") || error?.message?.includes("UNAVAILABLE") || error?.message?.includes("high demand");
+    if (is503) {
+      await ctx.reply("Gemini is under high demand right now. Wait a few seconds and try again.");
+    } else {
+      await ctx.reply("Something went wrong on my end. Try again in a second.");
+    }
   }
 };
 
