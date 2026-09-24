@@ -47,18 +47,8 @@ export function validateConfig(): string[] {
     errors.push("MEMWAL_ACCOUNT_ID is required for production");
   }
 
-  // Warn about webhook configuration
-  if (config.nodeEnv === "production") {
-    if (!config.telegramWebhookSecret) {
-      errors.push("TELEGRAM_WEBHOOK_SECRET is recommended for production webhook mode");
-    }
-
-    if (!config.publicDomain || config.publicDomain === "http://localhost:3000") {
-      errors.push(
-        "PUBLIC_DOMAIN must be set to your production domain for webhook mode"
-      );
-    }
-  }
+  // Warn about webhook configuration — only relevant if actually using webhooks
+  // In polling mode these are irrelevant, so don't block startup
 
   return errors;
 }
