@@ -1,35 +1,22 @@
-# Build stage
-FROM node:20-alpine AS builder
-
-WORKDIR /app
-
-RUN npm install -g pnpm
-
-COPY pnpm-workspace.yaml pnpm-lock.yaml package.json ./
-COPY packages ./packages
-COPY apps ./apps
-
-RUN pnpm install --frozen-lockfile
-RUN pnpm -r run build
-
-# Production stage
+# Single stage build
 FROM node:20-alpine
 
 WORKDIR /app
 
 RUN npm install -g pnpm
 
+# Copy workspace config and lockfile
 COPY pnpm-workspace.yaml pnpm-lock.yaml package.json ./
+
+# Copy all packages and apps source
 COPY packages ./packages
 COPY apps ./apps
 
-RUN pnpm install --prod --frozen-lockfile
+# Install all dependencies
+RUN pnpm install --frozen-lockfile
 
-COPY --from=builder /app/packages/shared/dist ./packages/shared/dist
-COPY --from=builder /app/packages/core/dist ./packages/core/dist
-COPY --from=builder /app/packages/ai/dist ./packages/ai/dist
-COPY --from=builder /app/packages/memory/dist ./packages/memory/dist
-COPY --from=builder /app/apps/bot/dist ./apps/bot/dist
+# Build all packages
+RUN pnpm -r run build
 
 EXPOSE 3000
 
