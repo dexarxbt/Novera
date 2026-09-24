@@ -7,8 +7,9 @@
     "node": ">=18.0.0"
   },
   "scripts": {
+    "start": "node apps/bot/dist/index.js",
     "dev": "pnpm -r --parallel dev",
-    "build": "pnpm -r build",
+    "build": "pnpm -r run build",
     "test": "pnpm -r test",
     "test:run": "pnpm -r run test:run",
     "lint": "pnpm -r lint",
