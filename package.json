@@ -4,8 +4,7 @@
   "description": "An AI tutor that remembers how you learn",
   "private": true,
   "engines": {
-    "node": ">=18.0.0",
-    "pnpm": ">=8.0.0"
+    "node": ">=18.0.0"
   },
   "packageManager": "pnpm@9.0.0",
   "scripts": {
