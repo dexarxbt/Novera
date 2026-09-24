@@ -3,8 +3,8 @@ FROM node:20-alpine AS builder
 
 WORKDIR /app
 
-# Install pnpm
-RUN npm install -g pnpm@9.0.0
+# Enable corepack and install pnpm
+RUN corepack enable && corepack prepare pnpm@9.0.0 --activate
 
 # Copy workspace files
 COPY pnpm-workspace.yaml pnpm-lock.yaml package.json ./
@@ -22,8 +22,8 @@ FROM node:20-alpine
 
 WORKDIR /app
 
-# Install pnpm
-RUN npm install -g pnpm@9.0.0
+# Enable corepack and install pnpm
+RUN corepack enable && corepack prepare pnpm@9.0.0 --activate
 
 # Create app user for security
 RUN addgroup -g 1001 -S nodejs && \
