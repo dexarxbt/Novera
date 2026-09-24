@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "jsx": "react-jsx",
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "baseUrl": ".",
+    "paths": {
+      "@novera/core/*": ["packages/core/src/*"],
+      "@novera/memory/*": ["packages/memory/src/*"],
+      "@novera/ai/*": ["packages/ai/src/*"],
+      "@novera/shared/*": ["packages/shared/src/*"],
+      "@novera/bot/*": ["apps/bot/src/*"],
+      "@novera/web/*": ["apps/web/src/*"]
+    }
+  },
+  "include": ["apps", "packages"],
+  "exclude": ["node_modules", "dist", "build"]
+}

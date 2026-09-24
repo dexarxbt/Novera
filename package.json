@@ -1,0 +1,30 @@
+{
+  "name": "novera",
+  "version": "0.1.0",
+  "description": "An AI tutor that remembers how you learn",
+  "private": true,
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=8.0.0"
+  },
+  "scripts": {
+    "dev": "pnpm -r --parallel dev",
+    "build": "pnpm -r build",
+    "test": "pnpm -r test",
+    "test:run": "pnpm -r run test:run",
+    "lint": "pnpm -r lint",
+    "type-check": "pnpm -r type-check",
+    "clean": "pnpm -r clean",
+    "deploy:local": "bash ./deploy.sh",
+    "deploy:local:ps": "powershell -ExecutionPolicy Bypass -File ./deploy.ps1",
+    "docker:build": "docker build -t novera-bot:latest .",
+    "docker:run": "docker-compose up -d",
+    "docker:logs": "docker-compose logs -f bot",
+    "docker:stop": "docker-compose down",
+    "docker:clean": "docker-compose down -v"
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ]
+}

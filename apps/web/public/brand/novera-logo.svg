@@ -1,0 +1,33 @@
+<svg viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg" fill="none">
+  <!-- Background -->
+  <circle cx="128" cy="128" r="128" fill="#07070A"/>
+  
+  <!-- Brain outline (left hemisphere) -->
+  <path d="M 90 140 Q 85 120 85 100 Q 85 75 100 65 Q 110 60 120 65 Q 125 70 125 80 Q 125 95 120 110" 
+        stroke="#18A8FF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <!-- Brain outline (right hemisphere) -->
+  <path d="M 166 140 Q 171 120 171 100 Q 171 75 156 65 Q 146 60 136 65 Q 131 70 131 80 Q 131 95 136 110" 
+        stroke="#18A8FF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <!-- Brain connection/corpus -->
+  <path d="M 120 110 Q 128 105 136 110" 
+        stroke="#18A8FF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <!-- Lower brain structure -->
+  <path d="M 95 140 Q 128 155 161 140" 
+        stroke="#18A8FF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <!-- Memory/synaptic nodes (dots) -->
+  <circle cx="105" cy="95" r="2" fill="#18A8FF"/>
+  <circle cx="128" cy="85" r="2" fill="#18A8FF"/>
+  <circle cx="151" cy="95" r="2" fill="#18A8FF"/>
+  
+  <!-- Ascending light path (growth trajectory) -->
+  <path d="M 128 165 L 128 185 L 135 185 L 128 200 L 121 185 L 128 185" 
+        stroke="#6C4DFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" 
+        fill="none"/>
+  
+  <!-- Small accent glow around arrow -->
+  <circle cx="128" cy="195" r="8" fill="none" stroke="#6C4DFF" stroke-width="1" opacity="0.3"/>
+</svg>
